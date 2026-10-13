@@ -1,0 +1,13 @@
+---
+description: Cloud Agent environment setup always ends at the Save click
+alwaysApply: true
+---
+
+# Finish environment setup at the Save click
+
+When setting up or updating a Cloud Agent environment, the agent's work ends when the only remaining action is the user's Save click. Do not stop at a status report while that click is still required.
+
+- Validate install locally, snapshot, run the draft build, and verify that build when those tools are available.
+- Call `propose-environment-json` with the successful build id so the Environment panel shows Save on that turn.
+- If a later check finds the environment is still unsaved, propose the tested scripts and build id again in that same turn.
+- The user clicks Save. Do not claim the environment is saved before that click.
